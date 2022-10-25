@@ -16,6 +16,9 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	public var buttonC:FlxButton;
 	public var buttonD:FlxButton;
 	public var buttonE:FlxButton;
+        public var buttonF:FlxButton;
+        public var buttonG:FlxButton;
+        public var buttonS:FlxButton;
 	public var buttonV:FlxButton;
 	public var buttonX:FlxButton;
 	public var buttonY:FlxButton;
@@ -56,6 +59,10 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		buttonC = new FlxButton(0, 0);
 		buttonD = new FlxButton(0, 0);
 		buttonE = new FlxButton(0, 0);
+		buttonF = new FlxButton(0, 0);
+		buttonG = new FlxButton(0, 0);
+
+		buttonS = new FlxButton(0, 0);
 		buttonV = new FlxButton(0, 0);
 		buttonX = new FlxButton(0, 0);
 		buttonY = new FlxButton(0, 0);
@@ -186,7 +193,6 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		buttonC = null;
 		buttonD = null;
 		buttonE = null;
-
 		buttonV = null;	
 		buttonX = null;	
 		buttonY = null;
