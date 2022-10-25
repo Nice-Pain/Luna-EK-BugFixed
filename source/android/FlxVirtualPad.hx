@@ -222,7 +222,6 @@ enum FlxDPadMode {
 enum FlxActionMode {
 	A;
 	B;
-	D;
 	A_B;
 	A_B_C;
 	A_B_E;
