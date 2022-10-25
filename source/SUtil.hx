@@ -1,19 +1,25 @@
 package;
 
 #if android
-import android.AndroidTools;
-import android.stuff.Permissions;
+import android.Permissions;
+import android.os.Build;
+import android.os.Environment;
+import android.widget.Toast;
 #end
 import lime.app.Application;
-import openfl.events.UncaughtErrorEvent;
+import flash.system.System;
 import openfl.utils.Assets as OpenFlAssets;
-import openfl.Lib;
+import flixel.FlxG;
 import haxe.CallStack.StackItem;
 import haxe.CallStack;
 import haxe.io.Path;
+import openfl.Lib;
+import openfl.events.UncaughtErrorEvent;
+import openfl.utils.Assets;
+#if (sys && !ios)
 import sys.FileSystem;
 import sys.io.File;
-import flash.system.System;
+#end
 
 /**
  * author: Saw (M.A. Jigsaw)
@@ -156,10 +162,20 @@ class SUtil {
 			println(errMsg);
 			Lib.application.window.alert(errMsg, 'Error!');
 			System.exit(1);
-		}
+		};
 
 	private static function applicationAlert(title:String, description:String) {
 		Application.current.window.alert(description, title);
+	}
+
+    private static function println(msg:String):Void
+	{
+		#if sys
+		Sys.println(msg);
+		#else
+		// Pass null to exclude the position.
+		haxe.Log.trace(msg, null);
+		#end
 	}
 
 	#if android
@@ -186,16 +202,6 @@ class SUtil {
 		}
 		catch (e:Dynamic)
 		Toast.makeText("Error!\nClouldn't copy the file because:\n" + e, Toast.LENGTH_LONG);
-	}
-
-    private static function println(msg:String):Void
-	{
-		#if sys
-		Sys.println(msg);
-		#else
-		// Pass null to exclude the position.
-		haxe.Log.trace(msg, null);
-		#end
 	}
 	#end
 }
