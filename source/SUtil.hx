@@ -156,7 +156,7 @@ class SUtil {
 			println(errMsg);
 			Lib.application.window.alert(errMsg, 'Error!');
 			System.exit(1);
-		});
+		};
 
 	private static function applicationAlert(title:String, description:String) {
 		Application.current.window.alert(description, title);
