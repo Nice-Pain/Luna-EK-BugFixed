@@ -136,7 +136,6 @@ class SUtil {
 				}
 			}
 
-			errMsg += error;
 
 			#if (sys && !ios)
 			try
