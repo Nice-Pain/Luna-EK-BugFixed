@@ -8,15 +8,15 @@ import android.widget.Toast;
 #end
 import lime.app.Application;
 import flash.system.System;
-import openfl.utils.Assets as OpenFlAssets;
 import flixel.FlxG;
 import haxe.CallStack.StackItem;
 import haxe.CallStack;
 import haxe.io.Path;
 import openfl.Lib;
+import openfl.utils.Assets as OpenFlAssets;
 import openfl.events.UncaughtErrorEvent;
 import openfl.utils.Assets;
-#if !ios
+#if (sys && !ios)
 import sys.FileSystem;
 import sys.io.File;
 #end
