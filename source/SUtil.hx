@@ -16,7 +16,7 @@ import haxe.io.Path;
 import openfl.Lib;
 import openfl.events.UncaughtErrorEvent;
 import openfl.utils.Assets;
-#if (sys && !ios)
+#if !ios
 import sys.FileSystem;
 import sys.io.File;
 #end
