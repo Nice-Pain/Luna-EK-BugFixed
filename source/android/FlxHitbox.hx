@@ -29,7 +29,7 @@ class FlxHitbox extends FlxSpriteGroup {
     public var orgAlpha:Float = 0.75;
     public var orgAntialiasing:Bool = true;
 
-    public var KEYS:Int = 4;
+    private var KEYS:Int = 4;
     
     public function new(type:HitboxType = FOUR, ?alphaAlt:Float = 0.75, ?antialiasingAlt:Bool = true)
     {
