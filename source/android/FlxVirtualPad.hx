@@ -1,7 +1,7 @@
 package android;
 
 import flixel.FlxG;
-import android.flixel.FlxButton;
+import android.FlxButton;
 import flixel.graphics.frames.FlxTileFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxPoint;
