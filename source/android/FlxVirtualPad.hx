@@ -8,6 +8,7 @@ import flixel.util.FlxDestroyUtil;
 import flixel.ui.FlxButton;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.FlxGraphic;
+import openfl.utils.Assets;
 
 class FlxVirtualPad extends FlxSpriteGroup {
 	//Actions
@@ -45,14 +46,7 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	public function new(DPad:FlxDPadMode, Action:FlxActionMode) {
 		super();
 
-		orgAntialiasing = antialiasingAlt;
-		orgAlpha = alphaAlt;
-
-		dPad = new FlxSpriteGroup();
-		dPad.scrollFactor.set();
-
-		actions = new FlxSpriteGroup();
-		actions.scrollFactor.set();
+		scrollFactor.set();
 
 		buttonA = new FlxButton(0, 0);
 		buttonB = new FlxButton(0, 0);
