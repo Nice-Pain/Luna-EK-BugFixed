@@ -41,8 +41,9 @@ class MusicBeatState extends FlxUIState
 	
 	#if android
 	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
-		_virtualpad = new FlxVirtualPad(DPad, Action, 0.75, ClientPrefs.globalAntialiasing);
+		_virtualpad = new FlxVirtualPad(DPad, Action);
 		add(_virtualpad);
+
 		controls.setVirtualPadUI(_virtualpad, DPad, Action);
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsUI = [];
@@ -51,8 +52,11 @@ class MusicBeatState extends FlxUIState
 
 	#if android
 	public function removeVirtualPad() {
-		controls.removeFlxInput(trackedinputsUI);
-		remove(_virtualpad);
+		if (trackedinputsUI != [])
+			controls.removeFlxInput(trackedinputsUI);
+
+		if (virtualPad != null)
+			remove(_virtualPad);
 	}
 	#end
 
@@ -61,27 +65,27 @@ class MusicBeatState extends FlxUIState
 		var curhitbox:HitboxType = FOUR;
 
 		switch (mania){
-			case 0:
-				curhitbox = ONE;
 			case 1:
-				curhitbox = TWO;
+				curhitbox = ONE;
 			case 2:
-				curhitbox = THREE;					
+				curhitbox = TWO;
 			case 3:
-				curhitbox = FOUR;	
+				curhitbox = THREE;					
 			case 4:
-				curhitbox = FIVE;
+				curhitbox = FOUR;	
 			case 5:
-				curhitbox = SIX;
+				curhitbox = FIVE;
 			case 6:
-				curhitbox = SEVEN;
+				curhitbox = SIX;
 			case 7:
-				curhitbox = EIGHT;
+				curhitbox = SEVEN;
 			case 8:
-				curhitbox = NINE;
+				curhitbox = EIGHT;
 			case 9:
+				curhitbox = NINE;
+			case 10:
 				curhitbox = TEN;
-		        case 10:
+		        case 11:
 				curhitbox = ELEVEN;									
 			default:
 				curhitbox = FOUR;
