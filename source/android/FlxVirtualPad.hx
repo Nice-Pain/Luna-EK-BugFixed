@@ -174,11 +174,22 @@ class FlxVirtualPad extends FlxSpriteGroup
 		button.immovable = true;
 		button.scrollFactor.set();
 		button.color = Color;
-		button.alpha = AndroidControls.getOpacity();
+		button.alpha = getOpacity();
 		#if FLX_DEBUG
 		button.ignoreDrawDebug = true;
 		#end
 		return button;
+	}
+
+	private static function getOpacity():Float
+	{
+		if (FlxG.save.data.androidControlsOpacity == null)
+		{
+			FlxG.save.data.androidControlsOpacity = 0.6;
+			FlxG.save.flush();
+		}
+
+		return FlxG.save.data.androidControlsOpacity;
 	}
 }
 
