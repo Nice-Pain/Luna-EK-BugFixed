@@ -168,20 +168,20 @@ jobs:
           haxe-version: 4.2.5
 
       # Runs a set of commands using the runners shell
-      - name: Install Haxelib
+      - name: Install Haxelibs
         run: |
-          haxelib install lime 7.9.0
-          haxelib install openfl 9.1.0
-          haxelib install flixel
-          haxelib --never run lime setup flixel
-          haxelib install flixel-tools
-          haxelib install flixel-ui 
-          haxelib install flixel-addons
-          haxelib install hscript
-          haxelib install hxCodec
-          haxelib git linc_luajit https://github.com/AndreiRudenko/linc_luajit.git
-          haxelib git extension-androidtools https://github.com/MAjigsaw77/extension-androidtools.git   
-          haxelib git extension-videoview https://github.com/MAjigsaw77/extension-videoview.git --quiet
+          haxelib --quiet install lime 7.9.0
+          haxelib --quiet install openfl 9.1.0
+          haxelib --quiet install flixel
+          haxelib --quiet --never run lime setup flixel
+          haxelib --quiet install flixel-tools
+          haxelib --quiet install flixel-ui 
+          haxelib --quiet install flixel-addons
+          haxelib --quiet install hscript
+          haxelib --quiet install hxCodec
+          haxelib --quiet git linc_luajit https://github.com/AndreiRudenko/linc_luajit.git
+          haxelib --quiet git extension-androidtools https://github.com/MAjigsaw77/extension-androidtools.git   
+          haxelib --quiet git extension-videoview https://github.com/MAjigsaw77/extension-videoview.git --quiet
           haxelib list
           
       - name: Create Version Tag
