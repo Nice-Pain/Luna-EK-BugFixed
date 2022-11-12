@@ -25,7 +25,7 @@ import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
 #if android
-import android.Hardware;
+import android.Tools;
 #end
 
 using StringTools;
@@ -150,7 +150,7 @@ class VisualsUISubState extends BaseOptionsMenu
 	{
 		if(ClientPrefs.vibration)
 		{
-			Hardware.vibrate(500);
+			Tools.vibrate(500);
 		}
 	}
 	#end
