@@ -20,7 +20,7 @@ import lime.utils.UInt8Array;
 @:unreflective
 @:keep
 @:native("LibVLC*")
-extern class LibVLC
+extern class libvlc
 {
 	@:native("LibVLC::create")
 	public static function create():LibVLC;
