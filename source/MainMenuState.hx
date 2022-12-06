@@ -63,7 +63,7 @@ class MainMenuState extends MusicBeatState
 		camAchievement.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
-		FlxG.cameras.add(camAchievement);
+		FlxG.cameras.add(camAchievement, false);
 		FlxG.cameras.setDefaultDrawTarget(camGame, true);
 
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -155,7 +155,8 @@ class MainMenuState extends MusicBeatState
 		#end
 
                 #if android
-	        addVirtualPad(UP_DOWN, A_B_C);
+	        addVirtualPad(UP_DOWN, A_B_E);
+                virtualPad.y = -44;
                 #end
 
 		super.create();
@@ -177,6 +178,7 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
+                        if(FreeplayState.vocals != null) FreeplayState.vocals.volume += 0.5 * elapsed;
 		}
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
@@ -256,11 +258,13 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
+                        #if (desktop || android)
 			else if (FlxG.keys.anyJustPressed(debugKeys) #if android || _virtualpad.buttonE.justPressed #end)
 			{
 				selectedSomethin = true;
 				MusicBeatState.switchState(new MasterEditorMenu());
 			}
+                        #end
 		}
 
 		super.update(elapsed);
