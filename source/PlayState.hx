@@ -161,7 +161,7 @@ class PlayState extends MusicBeatState
 	public var bads:Int = 0;
 	public var shits:Int = 0;
 	
-	public static var mania:Int = 0;
+	public static var mania:Int = 1;
 	
 	private var generatedMusic:Bool = false;
 	public var endingSong:Bool = false;
@@ -309,8 +309,8 @@ class PlayState extends MusicBeatState
 		camOther.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
-		FlxG.cameras.add(camHUD);
-		FlxG.cameras.add(camOther);
+		FlxG.cameras.add(camHUD, false);
+		FlxG.cameras.add(camOther, false);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
 		FlxG.cameras.setDefaultDrawTarget(camGame, true);
@@ -3027,11 +3027,11 @@ class PlayState extends MusicBeatState
 					}
 				}
 			case 'Change Mania':
-				var newMania:Int = 0;
+				var newMania:Int = 1;
 
 				newMania = Std.parseInt(value1);
-				if(Math.isNaN(newMania) && newMania < 0 && newMania > 9)
-					newMania = 0;
+				if(Math.isNaN(newMania) && newMania < 1 && newMania > 10)
+					newMania = 1;
 
 				changeMania(newMania);
 
